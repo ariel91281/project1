@@ -1,2 +1,8 @@
 
-*.txt
+*.*
+!.myfuncs 
+!*.txt
+!*.c
+!*.sh
+!*.md
+
