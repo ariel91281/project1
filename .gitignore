@@ -4,4 +4,4 @@
 !*.sh
 !*.c.save
 !*.txt
-
+!*.c.save
