@@ -1,8 +1,7 @@
-
 *.*
-!.myfuncs 
-!*.txt
 !*.c
-!*.sh
 !*.md
+!*.sh
+!*.c.save
+!*.txt
 
