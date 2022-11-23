@@ -9,17 +9,17 @@ int StackPush (stack_t *pstack, int element);
 int StackSize(stack_t *pstack);
 int StackSizeLeft(stack_t *pstack);
 
-struct stack	
+struct stack    
 {
     int maxsize;  
     int top;
     int *items;
 }
 
-stack_t  *StackCreate(int maxsize)
+stack_t  *StackCreate(int num_of_elements)
 {
 	stack *pstack = (stack*)malloc(sizeof(stack) *1;
-        *pstack->maxsize = 
+        *pstack->maxsize = num_of_elements * sizeof(int);  
         *pstack->top = -1;
         *pstack->items = (int*)malloc(sizeof(int) * capacity);
 	return pstack;
@@ -72,3 +72,21 @@ int StackPeek(stack_t *pstack);
 		return 0;
 	return  pstack->items[pstack->top]; 
 }
+
+int StackSize(stack_t *pstack);
+{
+	error_i = 1;	
+	if(pstack == NULL)//check if pointer points to null 
+		return error_i = 0;
+	return pstack->top  * sizeof(int);
+}
+
+
+int StackSizeLeft(stack_t *pstack);
+{
+	 error_i = 1;    
+        if(pstack == NULL)//check if pointer points to null 
+                return error_i = 0;
+	return pstack->maxsize - StackSize(pstack);
+}
+
