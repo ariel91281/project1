@@ -1,31 +1,24 @@
-extern int error_i;
-typedef struct stack_t stack_t;
-stack_t *StackCreate(int stack_size);
-int StackDestroy(stack_t *pstack);
-int StackPop(struct_t *pstack);
-int StackPeek(stack_t *pstack);
-int StackIsEmpty(stack_t *pstack);
-int StackPush (stack_t *pstack, int element);
-int StackSize(stack_t *pstack);
-int StackSizeLeft(stack_t *pstack);
+#include <stdio.h>
+#include "head.h"
+#include <stdlib.h>
 
-struct stack    
+struct stack_t
 {
-    int maxsize;  
-    int top;
-    int *items;
-}
+	int maxsize;
+	int top;
+	int *items;
+};
 
 stack_t  *StackCreate(int num_of_elements)
 {
-	stack *pstack = (stack*)malloc(sizeof(stack) *1;
-        *pstack->maxsize = num_of_elements * sizeof(int);  
-        *pstack->top = -1;
-        *pstack->items = (int*)malloc(sizeof(int) * capacity);
+	stack_t *pstack = (stack_t*)malloc(sizeof(stack_t) *1);
+	pstack->maxsize = (num_of_elements*sizeof(int));
+        pstack->top = -1;
+	pstack->items = (int*)malloc(sizeof(int)*num_of_elements);
 	return pstack;
 }
 
-stack_t StackDestroy(stack_t *pstack)
+int StackDestroy(stack_t *pstack)
 {
 	if(pstack == NULL)
 		return 0;
@@ -36,12 +29,10 @@ stack_t StackDestroy(stack_t *pstack)
 
 int StackIsEmpty(stack_t *pstack)
 {
-	if(*pstack->top == -1)
+	if(pstack->top == -1)
 	{
-		printf("your stack is empty");
 		return 1;
 	}
-	printf("your stack isn't empty");
 	return 0;
 }
 
@@ -55,38 +46,43 @@ int StackPop(stack_t *pstack)
 		 return error_i;
 	}
 	pstack->top--;
+	return pstack->items[pstack->top+1];
 }
 
 int StackPush(stack_t *pstack, int element)
 {
-	if(pstack->top == pstack->maxsize)
-
+	if((((pstack->top)+1) * sizeof(int)) == pstack->maxsize)
 		return 0;
 	pstack->items[pstack->top] = element;
 	pstack->top++;
+	return 1;
 }
 
-int StackPeek(stack_t *pstack);
+int StackPeek(stack_t *pstack)
 {
 	if(StackIsEmpty(pstack) == 1)
 		return 0;
-	return  pstack->items[pstack->top]; 
+	return  pstack->items[pstack->top];
 }
 
-int StackSize(stack_t *pstack);
+int StackSize(stack_t *pstack)
 {
-	error_i = 1;	
-	if(pstack == NULL)//check if pointer points to null 
+	long size;
+	error_i = 1;
+	if(pstack == NULL)//check if pointer points to null
 		return error_i = 0;
+	size = pstack->top  * sizeof(int);
+	if(size < 0)
+		return 0;
 	return pstack->top  * sizeof(int);
 }
 
 
-int StackSizeLeft(stack_t *pstack);
+int StackSizeLeft(stack_t *pstack)
 {
-	 error_i = 1;    
-        if(pstack == NULL)//check if pointer points to null 
-                return error_i = 0;
+	 error_i = 1;
+	if(pstack == NULL)//check if pointer points to null
+		return error_i = 0;
 	return pstack->maxsize - StackSize(pstack);
 }
 
