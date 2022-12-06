@@ -5,3 +5,4 @@
 !*.c.save
 !*.txt
 !*.c.save
+!*.py
