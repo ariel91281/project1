@@ -22,7 +22,7 @@ int main()
 	printf("Pop test:\n");
 	for(i=10 ;i>=0 ; i--)
 	{
-//		printf("%d\n",StackPeek(st));
+		printf("%d\n",StackPeek(st));
 		if(i == StackPop(st))
 			printf("success\n");
 		else
