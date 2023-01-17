@@ -1,0 +1,34 @@
+<div style="width:100vw; height:100vh; display:flex; justify-content:center; align-items:center; flex-direction:column">
+    <h1>{{ cityName }}:</h1>
+    <div style="display: flex;gap: 1rem; margin-bottom:1rem;">
+    {% for  item in my_data %}
+        {% if loop.index is divisibleby 2 %}
+            <div style="padding: 1rem;background: black;color: white; text-align:center">
+                <p>{{ item[0] }}</p>
+                <p>{{ item[1] }}</p>
+                <p>{{ item[2] }}</p>
+                <img style="width:4rem;" src="https://img.icons8.com/plasticine/512/cloudy-nigh.png" alt="image alt text" />
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <div style="display: flex;gap: 1rem; margin-bottom:1rem;">
+    {% for  item in my_data %}
+        {% if loop.index is not divisibleby 2 %}
+            <div style="padding: 1rem;background: black;color: white; text-align:center">
+                <p>{{ item[0] }}</p>
+                <p>{{ item[1] }}</p>
+                <p>{{ item[2] }}</p>
+                <img style="width:2rem;" src="https://cdn-icons-png.flaticon.com/512/169/169367.png" alt="image alt text" />
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+    <form class="center" action="/weather" method="POST" >
+            <input name="textFieldId" type="text" placeholder="Enter City Name / Country">
+            <input type="submit" value="Get Temperature">
+
+    </form>
+</div>
